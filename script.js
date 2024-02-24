@@ -26,18 +26,31 @@ musicFoco.addEventListener('change', () => {
 })
 
 foco.addEventListener('click', () => {
+    if(interId){
+        zerar();
+        startPauseButton.innerHTML = '<img class="app__card-primary-butto-icon" src="/imagens/play_arrow.png" alt="Botão começar"><span>Começar</span>'
+    }   
     elapsedTime = 1500;
     altContext('foco');
     foco.classList.add('active');
 })
 
 shortRest.addEventListener('click', () => {
+    if(interId){
+        zerar();
+        startPauseButton.innerHTML = '<img class="app__card-primary-butto-icon" src="/imagens/play_arrow.png" alt="Botão começar"><span>Começar</span>'
+    }
     elapsedTime = 300;
     altContext('descanso-curto');
     shortRest.classList.add('active');
+    
 })
 
 longRest.addEventListener('click', () => {
+    if(interId){
+        zerar();
+        startPauseButton.innerHTML = '<img class="app__card-primary-butto-icon" src="/imagens/play_arrow.png" alt="Botão começar"><span>Começar</span>'
+    }
     elapsedTime = 900;
     altContext('descanso-longo');
     longRest.classList.add('active');
@@ -54,20 +67,20 @@ function altContext(context){
         case 'foco':
             textTitle.innerHTML = `Otimize sua produtividade,<br>
             <strong class="app__title-strong">mergulhe no que importa.</strong>`
-            break;
+        break;
 
         case 'descanso-curto':
             textTitle.innerHTML = `Que tal dar uma respirada,<br>
             <strong class="app__title-strong">Faça uma pausa curta.</strong>`
-            break;
+        break;
         
         case 'descanso-longo':
             textTitle.innerHTML = `Hora de voltar a superfície,<br>
             <strong class="app__title-strong">Faça uma pausa longa.</strong>`
-            break;
+        break;
     
         default:
-            break;
+        break;
     }
 }
 
