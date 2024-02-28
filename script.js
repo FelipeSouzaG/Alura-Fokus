@@ -88,6 +88,13 @@ const countdown = () => {
     if(elapsedTime <= 0){
         musicEnd.play();
         alert('Tempo finalizado');
+
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if(focoAtivo){
+            const evento = new CustomEvent('focoFinalizado')
+            document.dispatchEvent(evento)
+        }
+        
         zerar();
         return
     }
